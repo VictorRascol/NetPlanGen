@@ -1,5 +1,5 @@
 # NetPlanGen
-## Generate Netplan Template Based On User Input\
+## Generate Netplan Template Based On User Input
 Requirements: 
 - python 3+ 
 - pip

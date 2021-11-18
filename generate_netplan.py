@@ -20,7 +20,7 @@ config = {
                 'set-name': 'eno1',
                 'routes': [
                     {
-                        'to': 'default',
+                        'to': '0.0.0.0/0',
                         'via': '',
                         'table': 200,
                     }
