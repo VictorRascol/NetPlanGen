@@ -28,6 +28,11 @@ config = {
         }
     }
 }
+interface_name = ''
+print('Please enter interface name (e.x. eno1): ')
+
+interface_name = input()
+config['network']['ethernets'][interface_name] = config['network']['ethernets'].pop('eno1')
 
 
 #get ips
@@ -39,7 +44,7 @@ while True:
         hosts = block.hosts()
         next(hosts, None)
         for ip in hosts:
-            config['network']['ethernets']['eno1']['addresses'].append(str(ip)+'/'+str(block.prefixlen))
+            config['network']['ethernets'][interface_name]['addresses'].append(str(ip)+'/'+str(block.prefixlen))
     except ValueError:
         if x == 'done':
             break
@@ -51,8 +56,8 @@ while True:
     x = input()
     try:
         ip = ipaddress.ip_address(x)
-        config['network']['ethernets']['eno1']['routes'][0]['via'] = x
-        config['network']['ethernets']['eno1']['gateway4'] = x
+        config['network']['ethernets'][interface_name]['routes'][0]['via'] = x
+        config['network']['ethernets'][interface_name]['gateway4'] = x
         break
     except ValueError:
         print('Not an ip address.')
