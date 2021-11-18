@@ -17,7 +17,6 @@ config = {
                     ],
                     'search': []
                 },
-                'set-name': 'eno1',
                 'routes': [
                     {
                         'to': '0.0.0.0/0',
