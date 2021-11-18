@@ -41,6 +41,8 @@ while True:
     x = input()
     try:
         block = ipaddress.ip_network(x)
+        if block.prefixlen == 32:
+            raise ValueError
         hosts = block.hosts()
         next(hosts, None)
         for ip in hosts:
